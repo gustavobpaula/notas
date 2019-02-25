@@ -1,0 +1,23 @@
+﻿using Notas.Modelos;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace Notas.Paginas
+{
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class DetalharNota : ContentPage
+	{
+		public DetalharNota (Nota nota)
+		{
+			InitializeComponent ();
+
+            BindingContext = nota;
+		}
+	}
+}

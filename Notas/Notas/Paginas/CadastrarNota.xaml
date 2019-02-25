@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notas.Paginas.CadastrarNota">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="Titulo" Placeholder="Titulo" />
+            <Editor x:Name="Descricao" Placeholder="Nota" HeightRequest="200" />
+
+            <Button Text="Salvar" Clicked="SalvarAction"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notas.Paginas.DetalharNota">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding Titulo}" FontSize="18" FontAttributes="Bold" />
+            <BoxView BackgroundColor="Silver" HeightRequest="1"  HorizontalOptions="FillAndExpand"/>
+            <Label Text="{Binding Descricao}" />
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

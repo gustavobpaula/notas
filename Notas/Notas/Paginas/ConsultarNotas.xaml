@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notas.Paginas.ConsultarNotas">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Notas" FontSize="24" />
+                <Label Text="Mantenha as suas anotações salvas" FontSize="12" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Adicionar" Clicked="GoCadastro" />
+                <Button Text="Minhas Notas" Clicked="GoMinhasNotas" />
+            </StackLayout>
+            <Entry Placeholder="Pesquisar" TextChanged="PesquisarAction" />
+            <Label Text="" x:Name="lblCount" />
+            <ListView x:Name="ListaNotas" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="100" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" Text="{Binding Titulo}" FontAttributes="Bold" />
+
+                                <Label Text="+Detalhes" Grid.Column="1">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="MaisDetalheAction" CommandParameter="{Binding .}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                        </ViewCell>                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
