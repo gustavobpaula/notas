@@ -1,20 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Notas.Paginas.MinhasNotasCadastradas">
+             x:Class="Notas.Paginas.MinhasNotasCadastradas"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Padding="10" BackgroundColor="White">
             <StackLayout Orientation="Horizontal">
-                <Label Text="Notas" FontSize="24" />
-                <Label Text="Mantenha as suas anotações salvas" FontSize="12" />
+                <Entry  Placeholder="Pesquisar suas notas" FontSize="10" TextChanged="PesquisarAction" HorizontalOptions="FillAndExpand" />
+                <Button Text="&#xf067;" Clicked="GoCadastro" WidthRequest="30" FontSize="10" Padding="0" Margin="0" BackgroundColor="Transparent">
+                    <Button.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String" Android="fa-solid-900.ttf#Font Awesome 5 Free Regular" iOS="Font Awesome 5 Free"/>
+                    </Button.FontFamily>
+                </Button>
+                <Button Text="&#xf03a;" Clicked="GoListar" WidthRequest="30" FontSize="10" Padding="0" Margin="0" BackgroundColor="Transparent">
+                    <Button.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String" Android="fa-solid-900.ttf#Font Awesome 5 Free Regular" iOS="Font Awesome 5 Free"/>
+                    </Button.FontFamily>
+                </Button>
             </StackLayout>
-            <Entry Placeholder="Pesquisar" TextChanged="PesquisarAction" />
-            <Label Text="" x:Name="lblCount"/>
+   
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Total de notas encontradas:" />
+                <Label Text="" x:Name="lblCount" />
+            </StackLayout>
+
             <ListView x:Name="ListaNotas" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
+                            <Grid Padding="10">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="100" />
@@ -25,13 +39,19 @@
                                 <Label Grid.Column="0" Text="{Binding Titulo}" FontAttributes="Bold" />
 
                                 <StackLayout Grid.Column="1" Orientation="Horizontal">
-                                    <Label Text="Editar">
+                                    <Label Text="&#xf044;">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String" Android="fa-solid-900.ttf#Font Awesome 5 Free Regular" iOS="Font Awesome 5 Free"/>
+                                        </Label.FontFamily>
                                         <Label.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="EditarAction" CommandParameter="{Binding .}" />
                                         </Label.GestureRecognizers>
                                     </Label>
                                     <Label Text="|"/>
-                                    <Label Text="Excluir">
+                                    <Label Text="&#xf2ed;">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String" Android="fa-solid-900.ttf#Font Awesome 5 Free Regular" iOS="Font Awesome 5 Free"/>
+                                        </Label.FontFamily>
                                         <Label.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="ExcluirAction" CommandParameter="{Binding .}" />
                                         </Label.GestureRecognizers>

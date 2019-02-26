@@ -33,7 +33,7 @@ namespace Notas.Paginas
             Navigation.PushAsync(new CadastrarNota());
         }
 
-        public void GoMinhasNotas(object sender, EventArgs args)
+        public void GoGerenciar(object sender, EventArgs args)
         {
             Navigation.PushAsync(new MinhasNotasCadastradas());
         }
@@ -48,7 +48,7 @@ namespace Notas.Paginas
 
         public void PesquisarAction(object sender, TextChangedEventArgs args)
         {
-            var listaFiltrada = Lista.Where(a => a.Titulo.Contains(args.NewTextValue)).ToList();
+            var listaFiltrada = Lista.Where(a => a.Titulo.ToUpper().Contains(args.NewTextValue.ToUpper())).ToList();
             ListaNotas.ItemsSource = listaFiltrada;
             lblCount.Text = listaFiltrada.Count.ToString();
         }
