@@ -3,11 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Notas.Paginas.EditarNota">
     <ContentPage.Content>
-        <StackLayout>
-            <Entry x:Name="Titulo" Placeholder="Titulo" />
-            <Editor x:Name="Descricao" Placeholder="Nota" HeightRequest="200" />
+        <StackLayout Padding="10">
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="Titulo" Placeholder="Titulo"  FontSize="24"  HorizontalOptions="FillAndExpand" />
+                <Button Text="&#xf0c7;" Clicked="SalvarAction" WidthRequest="50" FontSize="24" Padding="0" Margin="0" BackgroundColor="Transparent">
+                    <Button.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String" Android="fa-solid-900.ttf#Font Awesome 5 Free Regular" iOS="Font Awesome 5 Free"/>
+                    </Button.FontFamily>
+                </Button>
+            </StackLayout>
 
-            <Button Text="Salvar" Clicked="SalvarAction"/>
+            <Editor x:Name="Descricao" Placeholder="Nota" VerticalOptions="FillAndExpand" FontSize="20" />
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

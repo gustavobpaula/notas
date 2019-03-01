@@ -5,14 +5,14 @@
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout Padding="10" BackgroundColor="White">
-            <StackLayout Orientation="Horizontal">
-                <Entry Placeholder="Pesquisar suas notas" FontSize="10" TextChanged="PesquisarAction" HorizontalOptions="FillAndExpand" />
-                <Button Text="&#xf067;" Clicked="GoCadastro" WidthRequest="30" FontSize="10" Padding="0" Margin="0" BackgroundColor="Transparent">
+            <StackLayout Orientation="Horizontal" Margin="0, 10, 0, 10">
+                <Entry Placeholder="Pesquisar suas notas" FontSize="20" TextChanged="PesquisarAction" HorizontalOptions="FillAndExpand" />
+                <Button Text="&#xf067;" Clicked="GoCadastro" WidthRequest="40" FontSize="20" Padding="0" Margin="0" BackgroundColor="Transparent">
                     <Button.FontFamily>
                         <OnPlatform x:TypeArguments="x:String" Android="fa-solid-900.ttf#Font Awesome 5 Free Regular" iOS="Font Awesome 5 Free"/>
                     </Button.FontFamily>
                 </Button>
-                <Button Text="&#xf044;" Clicked="GoGerenciar"  WidthRequest="30" FontSize="10" Padding="0" Margin="0" BackgroundColor="Transparent">
+                <Button Text="&#xf044;" Clicked="GoGerenciar"  WidthRequest="40" FontSize="20" Padding="0" Margin="0" BackgroundColor="Transparent">
                     <Button.FontFamily>
                         <OnPlatform x:TypeArguments="x:String" Android="fa-solid-900.ttf#Font Awesome 5 Free Regular" iOS="Font Awesome 5 Free"/>
                     </Button.FontFamily>
@@ -20,25 +20,25 @@
             </StackLayout>
             
             <StackLayout Orientation="Horizontal" Margin="0, 10, 0, 10">
-                <Label Text="Total de notas encontradas:" FontSize="10"/>
-                <Label Text="" x:Name="lblCount" FontSize="10" />
+                <Label Text="Total de notas encontradas:" FontSize="16"/>
+                <Label Text="" x:Name="lblCount" FontSize="16" />
             </StackLayout>
             
             <ListView x:Name="ListaNotas" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid Padding="10">
+                            <Grid Padding="10, 20, 10, 20">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*"  />
+                                    <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Label Grid.Column="0" Text="{Binding Titulo}" FontSize="12"/>
+                                <Label Grid.Column="0" Text="{Binding Titulo}" HorizontalOptions="FillAndExpand" FontSize="20"/>
 
-                                <Label Text="&#xf06e;" HorizontalTextAlignment="End" Grid.Column="1">
+                                <Label Text="&#xf06e;" HorizontalTextAlignment="End" Grid.Column="1" FontSize="20">
                                     <Label.FontFamily>
                                         <OnPlatform x:TypeArguments="x:String" Android="fa-solid-900.ttf#Font Awesome 5 Free Regular" iOS="Font Awesome 5 Free"/>
                                     </Label.FontFamily>

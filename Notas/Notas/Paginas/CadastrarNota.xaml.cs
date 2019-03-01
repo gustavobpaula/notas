@@ -21,16 +21,36 @@ namespace Notas.Paginas
 
         public void SalvarAction(object sender, EventArgs args)
         {
-            //TODO - Criar validações
-
+            //TODO - Criar validaçõe
             Nota nota = new Nota();
             nota.Titulo = Titulo.Text;
             nota.Descricao = Descricao.Text;
 
-            Database database = new Database();
-            database.Cadastro(nota);
 
-            App.Current.MainPage = new NavigationPage(new ConsultarNotas());
+            if (isValid(nota.Titulo))
+            {
+
+                Database database = new Database();
+                database.Cadastro(nota);
+
+                App.Current.MainPage = new NavigationPage(new ConsultarNotas());
+
+            }
+           
+        }
+
+        private bool isValid(string text)
+        {
+            if(! string.IsNullOrEmpty(text))
+            {
+                text = text.Trim();
+            }
+            if(string.IsNullOrEmpty(text))
+            {
+                DisplayAlert("ERRO","Cadastre um título para a nota", "OK");
+                return false;
+            }
+            return true;
         }
 	}
 }
